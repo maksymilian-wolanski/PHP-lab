@@ -3,14 +3,14 @@
 $month = 2;
 $year = 2020;
 
-$dni = [31, 26, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+$dni = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
 switch ($month){
     case 1:
         echo $dni[0];
         break;
     case 2:
-        if ($year % 4 == 0){
+        if ($year % 4 == 0 && $year % 100 != 0 || $year % 400 == 0){
             echo $dni[1] + 1;
         } else
             echo $dni[1];
