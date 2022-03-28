@@ -25,12 +25,12 @@
         <br>
 
         <label for="pocz">Początek pobytu: </label>
-        <input type="date" id="pocz" name="trip-pocz" value="2022-03-28" min="2022-03-28" max="2023-03-28">
+        <input type="date" id="pocz" name="pocz" value="2022-03-28" min="2022-03-28" max="2023-03-28">
 
         <br>
 
         <label for="kon">Koniec pobytu: </label>
-        <input type="date" id="kon" name="trip-kon"  value="2022-03-28" min="2022-03-28" max="2023-03-28">
+        <input type="date" id="kon" name="kon"  value="2022-03-28" min="2022-03-28" max="2023-03-28">
 
         <TR>
             <TD>Ilość osób:</TD>
@@ -47,7 +47,22 @@
 </body>
 </html>
 <?php
-$start = $_GET['trip-pocz'];
-$stop = $_GET['trip-kon'];
-echo (($stop - $start) / (60*60*24));
+$start = $_GET['pocz'];
+$stop = $_GET['kon'];
+$kraj = $_GET['kraj'];
+$osoby = $_GET['num'];
+function daysBetween($dt1, $dt2) {
+    return date_diff(
+        date_create($dt2),
+        date_create($dt1)
+    )->format('%a');
+}
+$diff = daysBetween($start, $stop);
+
+switch ($kraj){
+    case 0:
+        var_dump (15* int($diff) * $osoby);
+        break;
+}
+
 ?>
