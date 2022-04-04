@@ -34,7 +34,7 @@
 
         <TR>
             <TD>Ilość osób:</TD>
-            <TD><INPUT num="num"></TD>
+            <TD><INPUT type="number" name="num"></TD>
         </TR>
 
         <TR>
@@ -59,10 +59,24 @@ function daysBetween($dt1, $dt2) {
 }
 $diff = daysBetween($start, $stop);
 
-switch ($kraj){
-    case 0:
-        var_dump (15* int($diff) * $osoby);
-        break;
+if ($start > $stop){
+    echo "Błąd daty";
+}
+else{
+    switch ($kraj) {
+        case 0:
+            echo $diff * $osoby * 15;
+            break;
+        case 1:
+            echo $diff * $osoby * 27;
+            break;
+        case 2:
+            echo $diff * $osoby * 24;
+            break;
+        case 3:
+            echo $diff * $osoby * 23;
+            break;
+    }
 }
 
 ?>
